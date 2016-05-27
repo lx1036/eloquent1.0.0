@@ -337,7 +337,7 @@
 }*/
 
 //PHPUnit Incomplete Test
-class Incomplete extends PHPUnit_Framework_TestCase{
+/*class Incomplete extends PHPUnit_Framework_TestCase{
     public function test()
     {
         $this->assertTrue(true);
@@ -355,6 +355,24 @@ class Incomplete extends PHPUnit_Framework_TestCase{
     public function testConnection(){
 
     }
-}
+}*/
 
+
+//PHPUnit Stub Test
+//class SomeClass{
+//    public function doSomething()
+//    {
+//        return 'foo2';
+//    }
+//}
+require_once __DIR__.'/SomeClass.php';
+class StubTest extends PHPUnit_Framework_TestCase{
+    public function testStub()
+    {
+        $stub = $this->getMockBuilder('SomeClass')->getMock();
+        $stub->method('doSometing')->willReturn($this->returnArgument(0));
+        $this->assertEquals('foo', $stub->doSomething('foo'));
+        $this->assertEquals('foo2', $stub->doSomething('foo2'));
+    }
+}
 
